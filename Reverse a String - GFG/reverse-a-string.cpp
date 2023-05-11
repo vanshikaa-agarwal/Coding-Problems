@@ -31,10 +31,13 @@ int main() {
 //User function Template for C++
 
 string reverseWord(string str){
-    string ans;
-    for(int i=str.size()-1;i>=0;i--){
-      ans.push_back(str[i]);
-  }
-  return ans;
+    int i=0;
+    int j=str.size()-1;
+    while(i<j){
+        swap(str[i],str[j]);
+        i++;
+        j--;
+    }
+    return str;
 }
 
