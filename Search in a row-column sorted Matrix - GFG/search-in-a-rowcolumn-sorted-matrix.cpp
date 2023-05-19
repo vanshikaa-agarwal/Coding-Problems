@@ -11,40 +11,29 @@ class Solution
     //Function to search a given number in row-column sorted matrix.
     bool search(vector<vector<int> > matrix, int n, int m, int x) 
     {
-        // code here 
-        int index=0;
         
-        for(int i=0;i<n;i++){
-            if(x>=matrix[i][0] && x<=matrix[i][m-1]){
-                int lo=0;
-                int hi=m-1;
-                while(hi-lo>1){
-                    int mid=(lo+hi)/2;
-                    if(matrix[i][mid]>x){
-                        hi=mid-1;
-                        index=i;
-                    }
-                    else if(matrix[i][mid]<=x){
-                        lo=mid;
-                        index=i;
-                    }
-                
-                }
-                if(matrix[index][lo]==x){
-                    return true;
-                }
-                else if(matrix[index][hi]==x){
-                    return true;
-                }
-                
-            lo=0;
-            hi=m-1;
+        // code here 
+        int i=0;
+        int j=m-1;
+        
+        while(i<n && j>=0){
+            int start=matrix[i][j];
+            if(x>start){
+            i=i+1;
+            j=j;
+            // start=matrix[i][j];
             }
-            
+            else if(x<start){
+                j=j-1;
+                i=i;
+                // start=matrix[i][j];
+            }
+            else{
+                return true;
+            }
         }
         
         return false;
-        
     }
 };
 
