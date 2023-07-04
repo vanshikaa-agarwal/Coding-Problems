@@ -24,7 +24,7 @@ public:
 	            }
 	        }
 	    }
-	    if(res==-1)return -1;
+	    if(res==-1)return res;
 	    return arr[res];
 	}
 };
