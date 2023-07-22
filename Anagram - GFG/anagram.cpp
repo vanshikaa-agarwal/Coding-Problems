@@ -8,22 +8,21 @@ class Solution
 {
     public:
     //Function is to check whether two strings are anagram of each other or not.
+    // const int CHAR=256;
     bool isAnagram(string a, string b){
+        char ct[256]={0};
         int n=a.size();
         int m=b.size();
-        map<char,int>mp1,mp2;
+        if(n!=m)return false;
         for(int i=0;i<n;i++){
-            mp1[a[i]]++;
-            // mp2[b[i]]++;
+            ct[a[i]]++;
+            ct[b[i]]--;
+        }
+        for(int i=0;i<256;i++){
+            if(ct[i]!=0)return false;
             
         }
-        for(int i=0;i<m;i++){
-            // mp1[a[i]]++;
-            mp2[b[i]]++;
-            
-        }
-        if(mp1==mp2)return true;
-        return false;
+        return true;
         // Your code here
         
     }
