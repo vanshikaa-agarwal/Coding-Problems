@@ -13,22 +13,19 @@ class Solution {
     // the intersection of two arrays.
     int NumberofElementsInIntersection(int a[], int b[], int n, int m) {
         // Your code goes here
-        set<int>s1,s2;
+        set<int>s1;
         for(int i=0;i<n;i++){
             s1.insert(a[i]);
         }
+        int ct=0;
         for(int i=0;i<m;i++){
-            s2.insert(b[i]);
-        }
-        int ans=0;
-        for(auto it:s1){
-            
-            if(s2.find(it)!=s2.end()){
-                ans++;
+            auto it=s1.find(b[i]);
+            if(it!=s1.end()){
+                ct++;
+                s1.erase(it);
             }
-            
         }
-        return ans;
+        return ct;
     }
 };
 
