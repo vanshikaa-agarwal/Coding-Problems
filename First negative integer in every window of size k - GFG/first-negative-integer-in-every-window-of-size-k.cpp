@@ -29,40 +29,36 @@ int main() {
 // } Driver Code Ends
 
 
-vector<long long> printFirstNegativeInteger(long long int A[],long long int N, long long int K) {
-    int i=0,j=0;
-    vector<long long>ans;
+vector<long long> printFirstNegativeInteger(long long int A[],
+                                             long long int N, long long int K) {
+                                                 
+                                                 
+    long long int i=0,j=0;
     queue<long long>q;
+    vector<long long>v;
     while(j<N){
         if(A[j]<0){
             q.push(A[j]);
+            // j++;
         }
         if(j-i+1<K){
             j++;
         }
         else if(j-i+1==K){
-            // cout<<i<<" "<<j<<endl;
-            if(q.size()==0){
-                ans.push_back(0);
+            if(q.empty()){
+                v.push_back(0);
             }
             else{
-            ans.push_back(q.front());
-            if(q.front()==A[i]){
+                
+            v.push_back(q.front());
+            }
+            if(A[i]==q.front()){
                 q.pop();
             }
-            }
-                
-                
-                    
+            
             i++;
             j++;
         }
     }
-    return ans;
-    
-    
-    
-    
-    
-    
-}
+    return v;
+ }
